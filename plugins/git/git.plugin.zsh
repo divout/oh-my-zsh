@@ -1,17 +1,16 @@
 # Aliases
 alias g='git'
 compdef g=git
-alias gst='git status'
+alias gs='git status'
 compdef _git gst=git-status
 alias gd='git diff'
 compdef _git gd=git-diff
 alias gl='git pull'
 compdef _git gl=git-pull
-alias gup='git pull --rebase'
-compdef _git gup=git-fetch
+alias glr='git pull --rebase'
+compdef _git glr=git-fetch
 alias gp='git push'
 compdef _git gp=git-push
-alias gd='git diff'
 gdv() { git diff -w "$@" | view - }
 compdef _git gdv=git-diff
 alias gc='git commit -v'
@@ -22,11 +21,13 @@ alias gca='git commit -v -a'
 compdef _git gc=git-commit
 alias gca!='git commit -v -a --amend'
 compdef _git gca!=git-commit
-alias gcmsg='git commit -m'
-compdef _git gcmsg=git-commit
+alias gcm='git commit -m'
+compdef _git gcm=git-commit
+alias gcma='git commit --amend -m'
+compdef _git gcma=git-commit
 alias gco='git checkout'
 compdef _git gco=git-checkout
-alias gcm='git checkout master'
+alias gcom='git checkout master'
 alias gr='git remote'
 compdef _git gr=git-remote
 alias grv='git remote -v'
@@ -51,7 +52,8 @@ alias gba='git branch -a'
 compdef _git gba=git-branch
 alias gcount='git shortlog -sn'
 compdef gcount=git
-alias gcl='git config --list'
+# alias gcl='git config --list'
+alias gcl='git clone'
 alias gcp='git cherry-pick'
 compdef _git gcp=git-cherry-pick
 alias glg='git log --stat --max-count=5'
@@ -62,8 +64,8 @@ alias glgga='git log --graph --decorate --all'
 compdef _git glgga=git-log
 alias glo='git log --oneline'
 compdef _git glo=git-log
-alias gss='git status -s'
-compdef _git gss=git-status
+alias gs='git status -s'
+compdef _git gs=git-status
 alias ga='git add'
 compdef _git ga=git-add
 alias gm='git merge'
@@ -87,11 +89,11 @@ alias gsts='git stash show --text'
 alias grt='cd $(git rev-parse --show-toplevel || echo ".")'
 
 # Git and svn mix
-alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-compdef git-svn-dcommit-push=git
+# alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
+# compdef git-svn-dcommit-push=git
 
-alias gsr='git svn rebase'
-alias gsd='git svn dcommit'
+# alias gsr='git svn rebase'
+# alias gsd='git svn dcommit'
 #
 # Will return the current branch name
 # Usage example: git pull origin $(current_branch)
@@ -109,14 +111,14 @@ function current_repository() {
 }
 
 # these aliases take advantage of the previous function
-alias ggpull='git pull origin $(current_branch)'
-compdef ggpull=git
-alias ggpur='git pull --rebase origin $(current_branch)'
-compdef ggpur=git
-alias ggpush='git push origin $(current_branch)'
-compdef ggpush=git
-alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
-compdef ggpnp=git
+alias gloc='git pull origin $(current_branch)'
+compdef gloc=git
+alias glocr='git pull --rebase origin $(current_branch)'
+compdef glocr=git
+alias gpoc='git push origin $(current_branch)'
+compdef gpoc=git
+alias glpoc='git pull origin $(current_branch) && git push origin $(current_branch)'
+compdef glpoc=git
 
 # Pretty log messages
 function _git_log_prettily(){

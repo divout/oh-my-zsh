@@ -13,12 +13,15 @@ GIT_DIRTY_COLOR=$FG[133]
 GIT_CLEAN_COLOR=$FG[118]
 GIT_PROMPT_INFO=$FG[012]
 
-PROMPT='%{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
-
+PROMPT='%{$fg_bold[white]%}%1~%{$reset_color%}|%{$fg_bold[red]%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}%{$reset_color%}'
+# PROMPT='%{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
+# PROMPT='%{$fg[cyan]%}%1~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%} '
 #RPS1="${return_code}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})"
+# ZSH_THEME_GIT_PROMPT_PREFIX="("
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})"
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$GIT_DIRTY_COLOR%}✘"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$GIT_CLEAN_COLOR%}✔"
 

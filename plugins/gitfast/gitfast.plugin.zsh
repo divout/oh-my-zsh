@@ -1,5 +1,5 @@
 dir=$(dirname $0)
-source $dir/../git/git.plugin.zsh
+# source $dir/../git/git.plugin.zsh
 source $dir/git-prompt.sh
 
 function git_prompt_info() {
